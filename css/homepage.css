@@ -1,0 +1,277 @@
+/*
+COLORS
+
+grey-white    #f1f1f1
+light grey    #777
+medium grey   #333
+dark blue     #000083
+medium blue   #2e2eff;
+light blue    #2998ff
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    /*
+    16px = 1rem cela permet de calculer facilement la valeur dans le code pour eventuellement faire du responsive
+    on paramètre la taille de police en % pour eviter une erreur au cas ou l'utilisateur change la poilce
+    de son navigateur, on veut une taille de 10px
+    la taille de police par défaut d'un navigateur est 16px, 10px/16px = 0.625 (62.5%)
+    */
+}
+
+body{
+    font-family: Lato, sans-serif;
+    color: #777;
+}
+
+/*///////// HEADER /////////*/
+.header{
+    height: 85vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../images/sea.jpg);
+    background-position: top;
+    background-size: cover;
+    position: relative;
+    background-attachment: fixed;
+}
+
+.title-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 2.3rem;
+    letter-spacing: 0.2rem;
+    text-align: center;
+}
+
+.text-box{
+    position: absolute;
+    top: 90%;
+    left: 2%;
+    font-size: 1.2rem;
+    color: #fff;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.heading-main{
+    backface-visibility: hidden;
+    display: block;
+    animation-name: moveInLeft;
+    animation-duration: 1.6s;
+    animation-timing-function: ease-out;
+}
+
+.heading-sub{
+    backface-visibility: hidden;
+    display: block;
+    animation: moveInRight 1.6s ease-out;
+}
+
+@keyframes moveInLeft {
+    0%{
+      opacity: 0;
+      transform: translateX(-10rem);
+    }
+    80%{
+      transform: translateX(1.5rem);
+    }
+    100%{
+      opacity: 1;
+      transform: translate(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+      opacity: 0;
+      transform: translateX(10rem);
+    }
+    80% {
+      transform: translateX(-1.5rem);
+    }
+    100% {
+      opacity: 1;
+      transform: translate(0);
+    }
+}
+
+/*///////// NAVIGATION /////////*/
+.topnav{
+    list-style: none;
+
+}
+
+.topnav li{
+    display: inline-block;
+    margin-left: 40px;
+    margin-top: 20px;
+}
+
+.topnav li a:link,
+.topnav li a:visited{
+    text-decoration: none;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+}
+
+.topnav li a:hover,
+.topnav li a:active{
+    color: #2998ff;
+}
+
+.topnav li a:link::after,
+.topnav li a:visited::after{
+    display: block;
+    content: "";
+    padding: 8px 0;
+    width: 0%;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom, width 0.7s;
+}
+
+.topnav li a:hover::after,
+.topnav li a:active::after{
+    width: 100%;
+    border-bottom: 2px solid #2998ff;
+}
+
+/*///////// MAIN /////////*/
+.container{
+    display: flex;
+    background-color: #f1f1f1;
+}
+
+.side{
+    background-color: #fff;
+    padding: 1.7rem;
+    flex: 0 0 25%;
+    display: flex;
+    flex-direction: column;
+    margin: 1.7rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+}
+
+.main{
+    flex: 1;
+    background-color: #fff;
+    border-radius: 3px;
+}
+
+/*///////// SIDE SECTION /////////*/
+.title-news{
+    text-align: center;
+
+}
+
+.title-news a:link,
+.title-news a:visited{
+    display: inline-block;
+    text-decoration: none;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    color: #000083;
+    transition: all 0.2s;
+}
+
+.title-news a:hover,
+.title-news a:active{
+    color: #2998ff;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    transform: rotate(5deg) scale(1.2);
+}
+
+.box-news{
+    padding: 2.5rem;
+
+}
+
+.box-news:not(:last-child){
+    border-bottom: 1px solid #777;
+}
+
+.box-news img{
+    width: 100%;
+    margin-bottom: 1.2rem;
+}
+
+.box-news p{
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+/*///////// MAIN SECTION /////////*/
+.main{
+    padding: 0 1.7rem;
+    margin: 1.7rem;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.3);
+}
+
+.main h1{
+    margin: 1.7rem 0;
+    color: #000083;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+
+.main h2{
+    margin: 2rem 0;
+    color: #2e2eff;
+    font-size: 2rem;
+}
+
+.main h4{
+
+    margin-bottom: 2rem;
+    font-size: 1.7rem;
+}
+
+.main p{
+    font-size: 1.5rem;
+}
+
+.main p:last-of-type{
+    margin-bottom: 2rem;
+}
+
+.main img{
+    width: 100%;
+    margin-bottom: 1.7rem;
+}
+
+/*///////// FOOTER /////////*/
+.footer{
+    background-color: #333;
+    padding: 10rem 0;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.footer a:link,
+.footer a:visited{
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    margin: 0 1rem;
+    color: #fff;
+    transition: all 0.2s;
+}
+
+.footer a:hover,
+.footer a:active{
+    color: #2998ff;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+    transform: rotate(5deg) scale(1.2);
+}
